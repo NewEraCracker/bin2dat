@@ -1,5 +1,5 @@
 /**
- * Converts a blob of binary data into dat (ASCII-HEX) format
+ * Convert a binary file into dat ascii-hex format
  *
  * Date: Dec 24th 2018
  * Author: Jorge Oliveira
