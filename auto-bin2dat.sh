@@ -13,7 +13,7 @@ BIN_DAT_EXE=./bin2dat
 INTEL_MC_DIR=./intel-ucode
 
 # List all files in microcode dir
-find "${INTEL_MC_DIR}" -type f -print | while read filename; do
+find "${INTEL_MC_DIR}" -type f -print | sort | while read filename; do
 
   # Convert
   "${BIN_DAT_EXE}" "${filename}" "${filename}.dat" 1>&2
