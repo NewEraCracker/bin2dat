@@ -54,7 +54,6 @@ int main(int argc, char * argv[])
 
 		// Output conversion result
 		fprintf(out, "0x%08x,", buffer);
-		fflush(out);
 
 		// Whitespace
 		if(++count % 4) {
@@ -62,10 +61,10 @@ int main(int argc, char * argv[])
 		} else {
 			fwrite("\n", 1, 1, out);
 		}
-
-		// Flush output
-		fflush(out);
 	} while (read);
+
+	// Flush output
+	fflush(out);
 
 	// We're done, close descriptors
 	fclose(out);
