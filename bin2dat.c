@@ -1,3 +1,13 @@
+/**
+ * Converts a blob of binary data into dat (ASCII-HEX) format
+ *
+ * Date: Dec 17th 2018
+ * Author: Jorge Oliveira
+ * License: Public Domain
+ *
+ * No warranties or guarantees express or implied.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
