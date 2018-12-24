@@ -19,7 +19,7 @@ find "${INTEL_MC_DIR}" -type f -print | while read filename; do
   echo "/*  ${filename}.dat  */"
 
   # Convert
-  "${BIN_DAT_EXE}" "${filename}" "${filename}.dat" | tee 1>&2
+  "${BIN_DAT_EXE}" "${filename}" "${filename}.dat" 1>&2
 
   # Body
   cat "${filename}.dat"
