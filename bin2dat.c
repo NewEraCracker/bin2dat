@@ -10,11 +10,20 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
 #include <string.h>
+
+#ifdef _MSC_VER
+#define int32_t __int32
+#else
+#include <stdint.h>
+#endif
 
 int main(int argc, char * argv[])
 {
+	// Declare variables for C89
+	int read, count;
+	FILE *in, *out;
+
 	// Check number of arguments
 	if (argc != 3) {
 		printf("Usage: %s <microcode.bin> <microcode.dat>\n", argv[0]);
@@ -22,14 +31,14 @@ int main(int argc, char * argv[])
 	}
 
 	// Open in for reading
-	FILE * in = fopen(argv[1], "rb");
+	in = fopen(argv[1], "rb");
 	if (in == NULL) {
 		printf("Unable to open file for read: %s\n", argv[1]);
 		return 1;
 	}
 
 	// Open out for writing
-	FILE * out = fopen(argv[2], "wb");
+	out = fopen(argv[2], "wb");
 	if (out == NULL) {
 		fclose(in); // Don't leak descriptors
 
@@ -38,8 +47,8 @@ int main(int argc, char * argv[])
 	}
 
 	// Initialize counters
-	int read = 0;
-	int count = 0;
+	read = 0;
+	count = 0;
 
 	do {
 		// Read in four byte chunks
