@@ -1,7 +1,7 @@
 /**
  * Converts a blob of binary data into dat (ASCII-HEX) format
  *
- * Date: Dec 17th 2018
+ * Date: Dec 24th 2018
  * Author: Jorge Oliveira
  * License: Public Domain
  *
