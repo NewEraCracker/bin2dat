@@ -15,11 +15,11 @@ INTEL_MC_DIR=./intel-ucode
 # List all files in microcode dir
 find "${INTEL_MC_DIR}" -type f -print | while read filename; do
 
-  # Header
-  echo "/*  ${filename}.dat  */"
-
   # Convert
   "${BIN_DAT_EXE}" "${filename}" "${filename}.dat" 1>&2
+
+  # Header
+  echo "/*  $(basename "${filename}").dat  */"
 
   # Body
   cat "${filename}.dat"
