@@ -12,10 +12,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#ifdef _MSC_VER
-#define int32_t __int32
-#else
+#ifndef _MSC_VER
 #include <stdint.h>
+#define __int32 int32_t
 #endif
 
 int main(int argc, char * argv[])
@@ -52,7 +51,7 @@ int main(int argc, char * argv[])
 
 	do {
 		// Read in four byte chunks
-		int32_t buffer = 0;
+		__int32 buffer = 0;
 		read = fread(&buffer, 1, sizeof(buffer), in);
 
 		if (!read) {
