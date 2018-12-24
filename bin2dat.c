@@ -14,6 +14,9 @@
 
 #ifndef _MSC_VER
 #include <stdint.h>
+#endif
+
+#ifndef __int32
 #define __int32 int32_t
 #endif
 
