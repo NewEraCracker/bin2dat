@@ -11,18 +11,23 @@
 # Configurable variables
 CPUID_EXE=./cpuid
 BIN2DAT_EXE=./bin2dat
-INTEL_MC_DIR=./intel-ucode
-MC_FILE='*'
+INTEL_UC_DIR=./intel-ucode
 
-# Uncomment the next two lines to build the executables
-# gcc -o "${CPUID_EXE}" -O2 "${CPUID_EXE}".c
-# gcc -o "${BIN2DAT_EXE}" -O2 "${BIN2DAT_EXE}".c
+# Set to '*' for all, or '' for automatic detection
+UC_FILE='*'
 
-# Uncomment the next line if you know what you're doing
-# MC_FILE="$("${CPUID_EXE}" | tr -d '\(\)' | awk '{print $2}')"
+# Uncomment the next three lines to build the executables
+# GCC_EXE=gcc
+# "${GCC_EXE}" -o "${CPUID_EXE}" -O2 "${CPUID_EXE}".c
+# "${GCC_EXE}" -o "${BIN2DAT_EXE}" -O2 "${BIN2DAT_EXE}".c
 
-# List all files in microcode dir
-find "${INTEL_MC_DIR}" -maxdepth 1 -type f -name "${MC_FILE}" -print | sort | while read filename; do
+# Determine microcode file name
+if [ -z "${UC_FILE}" ]; then
+  UC_FILE="$("${CPUID_EXE}" | tr -d '\(\)' | awk '{print $2}')"
+fi
+
+# List matching files in microcode dir
+find "${INTEL_UC_DIR}" -maxdepth 1 -type f -name "${UC_FILE}" -print | sort | while read filename; do
 
   # Convert
   "${BIN2DAT_EXE}" "${filename}" "${filename}.dat" 1>&2

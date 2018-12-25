@@ -55,6 +55,7 @@ int main(int argc, char * argv[])
 		int32_t buffer = 0;
 		read = fread(&buffer, 1, sizeof(buffer), in);
 
+		// Check for EOF and incomplete chunks
 		if (!read) {
 			break;
 		} else if(read != 4) {
@@ -71,6 +72,12 @@ int main(int argc, char * argv[])
 			fwrite("\n", 1, 1, out);
 		}
 	} while (read);
+
+	// Check for incomplete chunks
+	if(count % 4) {
+		printf("WARN: Unaligned read from: %s\n", argv[1]);
+		fwrite("\n", 1, 1, out);
+	}
 
 	// Flush output
 	fflush(out);
