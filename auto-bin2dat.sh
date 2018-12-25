@@ -1,12 +1,11 @@
 #!/bin/sh
 
-# For updates please check: https://github.com/NewEraCracker/bin2dat
-#
 # Creates the microcode.dat from an intel-ucode folder
 #
 # Date: Dec 25th 2018
 # Author: Jorge Oliveira
 # License: Public Domain
+# URL: https://github.com/NewEraCracker/bin2dat
 #
 # No warranties or guarantees express or implied.
 
