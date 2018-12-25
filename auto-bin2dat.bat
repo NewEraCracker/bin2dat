@@ -25,7 +25,7 @@ if _%UC_FILE%_==__ for /f "tokens=2 delims=()" %%a in ('%CPUID_EXE%') do set UC_
 @REM Blank the destination file
 echo. 1>nul 2>microcode.dat
 
-@REM List all files in microcode dir
+@REM List matching files in microcode dir
 for /F "tokens=*" %%a in ('dir /b "%INTEL_UC_DIR%\%UC_FILE%"') do (
 
   @REM Convert
