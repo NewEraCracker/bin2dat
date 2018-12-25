@@ -1,4 +1,6 @@
 /**
+ * For updates please check: https://github.com/NewEraCracker/bin2dat
+ *
  * Discover the cpuid of an Intel processor
  *
  * Date: Dec 25th 2018

@@ -1,4 +1,6 @@
 /**
+ * For updates please check: https://github.com/NewEraCracker/bin2dat
+ *
  * Convert a binary file into dat ascii-hex format
  *
  * Date: Dec 25th 2018

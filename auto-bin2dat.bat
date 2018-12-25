@@ -1,3 +1,5 @@
+@REM For updates please check: https://github.com/NewEraCracker/bin2dat
+@REM
 @REM Creates the microcode.dat from an intel-ucode folder
 @REM
 @REM Date: Dec 25th 2018
