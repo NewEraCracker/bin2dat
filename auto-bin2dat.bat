@@ -19,8 +19,10 @@ set MC_FILE=*
 @REM for /f "tokens=2 delims=(" %%a in ('%CPUID_EXE%') do set MC_FILE=%%a
 @REM set MC_FILE=%MC_FILE:~0,-1%
 
-@REM List all files in microcode dir
+@REM Blank the destination file
 echo. 1>nul 2>microcode.dat
+
+@REM List all files in microcode dir
 for /F "tokens=*" %%a in ('dir /b "%INTEL_MC_DIR%\%MC_FILE%"') do (
 
   @REM Convert
