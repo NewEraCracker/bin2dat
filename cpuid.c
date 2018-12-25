@@ -1,4 +1,6 @@
 /**
+ * For updates please check: https://github.com/NewEraCracker/bin2dat
+ *
  * Discover the cpuid of an Intel processor
  *
  * Date: Dec 25th 2018
@@ -10,7 +12,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 unsigned int cpuid(unsigned int type)
 {
@@ -33,9 +34,9 @@ int main(int argc, char * argv[])
 {
 	unsigned int id = cpuid(1);
 
-	char step = (id) & 0x0000000f;
-	char model = (((id >> 16) & 0x000000ff) << 4) | ((id >> 4) & 0x0000000f);
-	char family = (((id >> 20) & 0x000000ff) << 4) | ((id >> 8) & 0x0000000f);
+	unsigned char step = (id) & 0x0000000f;
+	unsigned char model = (((id >> 16) & 0x000000ff) << 4) | ((id >> 4) & 0x0000000f);
+	unsigned char family = (((id >> 20) & 0x000000ff) << 4) | ((id >> 8) & 0x0000000f);
 
 	printf("%08x (%02x-%02x-%02x)", id, family, model, step);
 
