@@ -33,7 +33,7 @@ find "${INTEL_UC_DIR}" -maxdepth 1 -type f -name "${UC_FILE}" -print | sort | wh
   "${BIN2DAT_EXE}" "${filename}" "${filename}.dat" 1>&2
 
   # Header
-  echo "/*  $(basename "${filename}")  */"
+  printf '%s\r\n' "/*  $(basename "${filename}")  */"
 
   # Body
   cat "${filename}.dat"
