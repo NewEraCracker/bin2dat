@@ -28,7 +28,7 @@ find "${INTEL_MC_DIR}" -maxdepth 1 -type f -name "${MC_FILE}" -print | sort | wh
   "${BIN2DAT_EXE}" "${filename}" "${filename}.dat" 1>&2
 
   # Header
-  echo "/*  $(basename "${filename}").dat  */"
+  echo "/*  $(basename "${filename}")  */"
 
   # Body
   cat "${filename}.dat"
