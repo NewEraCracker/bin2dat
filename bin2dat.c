@@ -10,13 +10,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-
-#ifndef _MSC_VER
-#include <stdint.h>
-#else
-#define int32_t __int32
-#endif
 
 int main(int argc, char * argv[])
 {
@@ -33,7 +26,7 @@ int main(int argc, char * argv[])
 	// Open in for reading
 	in = fopen(argv[1], "rb");
 	if (in == NULL) {
-		printf("Unable to open file for read: %s\n", argv[1]);
+		printf("ERROR: Unable to open file for read: %s\n", argv[1]);
 		return 1;
 	}
 
@@ -42,7 +35,7 @@ int main(int argc, char * argv[])
 	if (out == NULL) {
 		fclose(in); // Don't leak descriptors
 
-		printf("Unable to open file for write: %s\n", argv[2]);
+		printf("ERROR: Unable to open file for write: %s\n", argv[2]);
 		return 1;
 	}
 
@@ -52,10 +45,10 @@ int main(int argc, char * argv[])
 
 	do {
 		// Read in four byte chunks
-		int32_t buffer = 0;
+		unsigned int buffer = 0;
 		read = fread(&buffer, 1, sizeof(buffer), in);
 
-		// Check for EOF and incomplete chunks
+		// Check for EOF and invalid reads
 		if (!read) {
 			break;
 		} else if(read != 4) {
@@ -73,7 +66,7 @@ int main(int argc, char * argv[])
 		}
 	} while (read);
 
-	// Check for incomplete chunks
+	// Check for unaligned reads
 	if(count % 4) {
 		printf("WARN: Unaligned read from: %s\n", argv[1]);
 		fwrite("\n", 1, 1, out);
