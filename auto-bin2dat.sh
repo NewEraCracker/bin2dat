@@ -2,7 +2,7 @@
 
 # Creates the microcode.dat from an intel-ucode folder
 #
-# Date: Dec 24th 2018
+# Date: Dec 25th 2018
 # Author: Jorge Oliveira
 # License: Public Domain
 #
