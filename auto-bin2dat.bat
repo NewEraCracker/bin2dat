@@ -1,8 +1,8 @@
 @REM Creates the microcode.dat from an intel-ucode folder
 @REM
-@REM Date: Dec 25th 2018
-@REM Author: Jorge Oliveira
-@REM License: Public Domain
+@REM Date: Dec 26th 2018
+@REM Author: Jorge "NewEraCracker" Oliveira
+@REM License: Unlicense (Public Domain)
 @REM URL: https://github.com/NewEraCracker/bin2dat
 @REM
 @REM No warranties or guarantees express or implied.
